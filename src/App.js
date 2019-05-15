@@ -18,9 +18,10 @@ class App extends React.Component{
     }
     fetch(`https://api.stormglass.io/v1/weather/point?lat=${lat}&lng=${lng}`, options) 
     .then(response => response.json())
-    .then(weatherData => this.setState({ weatherData }))
+    .then(weatherData => this.setState({ weatherData: weatherData.hours[0] }))
   }
   render(){
+    // console.log(this.state.weatherData.waveHeight)
     return (
       <div className="App">
         <h1>Bolivar Peninsula</h1>
